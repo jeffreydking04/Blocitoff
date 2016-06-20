@@ -1,8 +1,11 @@
 <div id=<%= "item-#{item.id}" %> class='row'>
+  <div class='col-md-1 time-remaining'>
+    <%= distance_of_time_in_words(item.created_at + 7.days - Time.now) %> remaining
+  </div>
   <div class='col-md-1 check'>
     <%= link_to "", user_item_path(@user.id, item.id), method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %>
   </div>
-  <div class='col-md-10'>
+  <div class='col-md-8'>
     <h3><%= item.name %></h3>
   </div>
 </div>
